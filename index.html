@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body class="text-center">
+  <h1>Type the secret password</h1>
+  <h3>and the <span class="unicorn">unicorn</span> will be revealed<h3>
+  <h5>Ok, to make it more clear: <br> just type in you 're keyboard the word "unicorn"!<h5>
+    <h5>Do you see it?! Type it as many times as yo want!</h5>
+<script>
+const pressed = [];
+const secretCode = 'unicorn';
+
+window.addEventListener('keyup', (e) => {
+  console.log(e.key);
+  pressed.push(e.key);
+  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+  if (pressed.join('').includes(secretCode)) {
+    console.log('DING DING!');
+    cornify_add();
+  }
+  console.log(pressed);
+});
+</script>
+
+<div class="row text-center" id="footer"> <!-- for footer -->
+      <h5><a href="http://www.eleftheriabatsou.com" target="_blank">Eleftheria Batsou</a> | <a href="http://codepen.io/EleftheriaBatsou" target="_blank">Projects</a></h5>
+    </div> <!-- end footer -->
+</body>
+</html>
+
+
